@@ -1,4 +1,4 @@
-__version__ = (1, 0, 0)
+__version__ = (1, 0, 1)
 
 # Name: HerokuSupport
 # meta developer: @SamsungMagician (main developer @hikka_dmod)
@@ -96,7 +96,7 @@ class HerokuSupport(loader.Module):
         await message.edit("""
 <emoji document_id=5436113877181941026>❓</emoji> <b>Как установить Heroku на <em>Termux?</em></b>
 
-<emoji document_id=5348324054161967894>1️⃣</emoji> <b>Скачай <em>Termux</em> по <a href="https://f-droid.org/repo/com.termux_118.apk">ссылке</a>. ⚠️ Версия из Play Market не подойдет!</b>
+<emoji document_id=5348324054161967894>1️⃣</emoji> <b>Скачай <em>Termux</em> по <a href="https://f-droid.org/packages/com.termux">ссылке</a>. ⚠️ Версия из Play Market не подойдет!</b>
 
 <emoji document_id=5350559846632537457>2️⃣</emoji> <b>Скопируй в него команду:</b>
 
