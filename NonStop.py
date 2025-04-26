@@ -32,11 +32,13 @@
 # .amz | .dk | .wkx
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 0)
+__version__ = (1, 0, 1)
 
 # name: NonStop
 # meta developer: @evilovery
 
+import asyncio
+import logging
 import random
 from asyncio import sleep
 import os
@@ -49,11 +51,25 @@ def register(cb):
 class NonStop(loader.Module):
     """Created by https://t.me/ArgostRST"""
 
-    strings = {"name": "NonStop"}
+    strings = {"name": "NonStop",
+               "welcome": (
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„NonStop“</b></i>"
+                   "\n\n🔗 <i>Вступай в <a href='https://t.me/ArgostRST'>наши ряды</a>, чтобы поддержать разработчика</i>"
+                   "\n\n🩸 <i>Модуль создан by <code>@evilovery</code></i>"
+               ),
+    }
+
+    async def on_dlmod(self, client, db):
+        await self.inline.bot.send_photo(
+            client._tg_id,
+            "https://envs.sh/1vi.jpg",
+            caption=self.strings("welcome"),
+        )
 
     async def client_ready(self, client, db) -> None:
         self.db = db
         self.client = client
+        logging.info("Модуль NonStop готов вычищать мусор")
 
     async def kwcmd(self, message):
         '''- техника нон-стоп'''
