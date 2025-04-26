@@ -32,7 +32,7 @@
 # .amz | .dk | .wkx
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 0)
+__version__ = (1, 0, 1)
 
 # name: Argostalion
 # meta developer: @evilovery
@@ -43,6 +43,7 @@ import os
 from .. import loader, utils
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import Message
+import logging
 
 class Argostalion(loader.Module):
     """Created by https://t.me/ArgostRST"""
@@ -50,15 +51,28 @@ class Argostalion(loader.Module):
     strings = {
     "name":  "Argostalion",
     "loading": "<b>трахаю твою мать...</b>",
-    "not_chat": "<b>Ты не ломаешь череп шлюхам</b>", # name loader () \n
-    } 
+    "not_chat": "<b>Ты не ломаешь череп шлюхам</b>",
+    "welcome": (
+        "🖐 <i>Приветствую, ты запустил установку модуля <b>„Argostalion“</b></i>"
+        "\n\n🔗 <i>Вступай в <a href='https://t.me/ArgostRST'>наши ряды</a>, чтобы поддержать разработчика</i>"
+        "\n\n🩸 <i>Модуль создан by <code>@evilovery</code></i>"
+        ),
+    }
+
+    async def on_dlmod(self, client, db):
+        await self.inline.bot.send_photo(
+            client._tg_id,
+            "https://envs.sh/1vi.jpg",
+            caption=self.strings("welcome"),
+        )
 
     async def client_ready(self, client, db) -> None:
         self.db = db
         self.client = client
+        logging.info("Модуль Argostalion готов вычищать мусор")
 
     async def amzcmd(self, message):
-        """запустить анимацию"""
+        """- запустить анимацию"""
 
         args = utils.get_args_raw(message)
 
@@ -131,7 +145,7 @@ class Argostalion(loader.Module):
             )
 
     async def wkxcmd(self, message):
-        '''секунды в отписке сообщений + шаблон'''
+        '''- секунды в отписке сообщений + шаблон'''
 
         args = utils.get_args_raw(message)
 
@@ -212,7 +226,7 @@ class Argostalion(loader.Module):
             
                         
     async def dkcmd(self, message):
-        '''ебать шалаву с фоткой/гифкой/гс'''
+        '''- ебать шалаву с фоткой/гифкой/гс'''
         args = utils.get_args_raw(message)
         if not args:
             self.db.set(self.strings["name"], "state", False)
