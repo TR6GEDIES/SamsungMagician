@@ -526,7 +526,7 @@ shablon = [ 'твою мамашку ебал на тихих холмах а п
 shablonclear = ' '
 
 class RST(loader.Module):
-	"""Заметки из саппорта хероку"""
+	"""Created by https://t.me/ArgostRST"""
 
 	strings = {"name": "RST"}
 
