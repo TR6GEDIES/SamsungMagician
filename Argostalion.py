@@ -22,20 +22,20 @@
 # 頬i鞏褂f跫詹雋髢i曷迯瓲軌霤 　 ,緲蔭穐 Ⅶ穐 　 讎椈i棘貅f斐犀耋f絎絲觚f覃黹黍
 # 襴蔽戮貲艀舅I肅肄肆槿f蝓Ⅷ 　 緲$慚I穐,疊穐　 甯萪碾f鋗輜靠f誹臧鋩f褂跫詹i雋
 # ---------------------------------------------------------------------------------
-# 🌐 This project was created https://t.me/evilovery
+# 🌐 This project was created https://t.me/Werturon
 # ⚠️ Licensed under the GNU AGPLv3.
 # 💢 The owner of this script does not have any responsibility or intellectual property rights in relation to this script.
 # ---------------------------------------------------------------------------------
 # Name: Argostalion
-# Author: https://t.me/evilovery
+# Author: https://t.me/Werturon
 # Commands:
 # .amz | .dk | .wkx
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 1)
+__version__ = (1, 0, 2)
 
 # name: Argostalion
-# meta developer: @evilovery
+# meta developer: @Werturon
 
 import random
 from asyncio import sleep
@@ -46,33 +46,37 @@ from telethon.tl.types import Message
 import logging
 
 class Argostalion(loader.Module):
-    """Created by https://t.me/ArgostRST"""
+    """Created by https://t.me/RelentlesRTS"""
 
-    strings = {
-    "name":  "Argostalion",
-    "loading": "<b>трахаю твою мать...</b>",
-    "not_chat": "<b>Ты не ломаешь череп шлюхам</b>",
-    "welcome": (
-        "🖐 <i>Приветствую, ты запустил установку модуля <b>„Argostalion“</b></i>"
-        "\n\n🔗 <i>Вступай в <a href='https://t.me/ArgostRST'>наши ряды</a>, чтобы поддержать разработчика</i>"
-        "\n\n🩸 <i>Модуль создан by <code>@evilovery</code></i>"
-        ),
-    }
+    strings = {"name": "Argostalion",
+               "channel": "Вступай в наши ряды!",
+               "welcome": (
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„Argostalion“</b></i>"
+                   "\n\n🔗 <i>Вступай в <a href='https://t.me/RelentlesRTS'>наши ряды</a>, чтобы поддержать разработчика</i>"
+                   "\n\n🩸 <i>Модуль создан by <code>@Werturon</code></i>"
+               ),
+               }
 
     async def on_dlmod(self, client, db):
         await self.inline.bot.send_photo(
             client._tg_id,
-            "https://envs.sh/1vi.jpg",
+            "https://envs.sh/8tQ.jpg",
             caption=self.strings("welcome"),
         )
 
     async def client_ready(self, client, db) -> None:
         self.db = db
         self.client = client
+
         logging.info("Модуль Argostalion готов вычищать мусор")
 
+        await self.request_join(
+            "@RelentlesRTS",
+            self.strings['channel'],
+        )
+
     async def amzcmd(self, message):
-        """- запустить анимацию"""
+        """запустить анимацию"""
 
         args = utils.get_args_raw(message)
 
@@ -145,7 +149,7 @@ class Argostalion(loader.Module):
             )
 
     async def wkxcmd(self, message):
-        '''- секунды в отписке сообщений + шаблон'''
+        '''секунды в отписке сообщений + шаблон'''
 
         args = utils.get_args_raw(message)
 
@@ -226,7 +230,7 @@ class Argostalion(loader.Module):
             
                         
     async def dkcmd(self, message):
-        '''- ебать шалаву с фоткой/гифкой/гс'''
+        '''ебать шалаву с фоткой/гифкой/гс'''
         args = utils.get_args_raw(message)
         if not args:
             self.db.set(self.strings["name"], "state", False)
