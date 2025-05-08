@@ -22,20 +22,20 @@
 # 頬i鞏褂f跫詹雋髢i曷迯瓲軌霤 　 ,緲蔭穐 Ⅶ穐 　 讎椈i棘貅f斐犀耋f絎絲觚f覃黹黍
 # 襴蔽戮貲艀舅I肅肄肆槿f蝓Ⅷ 　 緲$慚I穐,疊穐　 甯萪碾f鋗輜靠f誹臧鋩f褂跫詹i雋
 # ---------------------------------------------------------------------------------
-# 🌐 This project was created https://t.me/evilovery
+# 🌐 This project was created https://t.me/Werturon
 # ⚠️ Licensed under the GNU AGPLv3.
 # 💢 The owner of this script does not have any responsibility or intellectual property rights in relation to this script.
 # ---------------------------------------------------------------------------------
 # Name: NonStop
-# Author: https://t.me/evilovery
+# Author: https://t.me/Werturon
 # Commands:
 # .amz | .dk | .wkx
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 1)
+__version__ = (1, 0, 2)
 
 # name: NonStop
-# meta developer: @evilovery
+# meta developer: @Werturon
 
 import asyncio
 import logging
@@ -49,27 +49,34 @@ def register(cb):
     cb(ArgostalionMod())
 
 class NonStop(loader.Module):
-    """Created by https://t.me/ArgostRST"""
+    """Created by https://t.me/RelentlesRTS"""
 
     strings = {"name": "NonStop",
+               "channel": "Вступай в наши ряды!",
                "welcome": (
                    "🖐 <i>Приветствую, ты запустил установку модуля <b>„NonStop“</b></i>"
-                   "\n\n🔗 <i>Вступай в <a href='https://t.me/ArgostRST'>наши ряды</a>, чтобы поддержать разработчика</i>"
-                   "\n\n🩸 <i>Модуль создан by <code>@evilovery</code></i>"
+                   "\n\n🔗 <i>Вступай в <a href='https://t.me/RelentlesRTS'>наши ряды</a>, чтобы поддержать разработчика</i>"
+                   "\n\n🩸 <i>Модуль создан by <code>@Werturon</code></i>"
                ),
-    }
+               }
 
     async def on_dlmod(self, client, db):
         await self.inline.bot.send_photo(
             client._tg_id,
-            "https://envs.sh/1vi.jpg",
+            "https://envs.sh/8tQ.jpg",
             caption=self.strings("welcome"),
         )
 
     async def client_ready(self, client, db) -> None:
         self.db = db
         self.client = client
+
         logging.info("Модуль NonStop готов вычищать мусор")
+
+        await self.request_join(
+            "@RelentlesRTS",
+            self.strings['channel'],
+        )
 
     async def kwcmd(self, message):
         '''- техника нон-стоп'''
