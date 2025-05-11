@@ -30,19 +30,42 @@
 # Author: https://t.me/SamsungMagician
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 1)
+__version__ = (1, 0, 2)
 
-# meta developer: @SamsungMagician (main developer @mqone)
+# meta developer: @SamsungMagician (idea by @mqone)
 
 from .. import loader
 import asyncio
+import logging
 
 @loader.tds
 class MediafilesCircles(loader.Module):
-    """Отправляет кружки с канала https://t.me/MediafilesForModule"""
+    """Отправляет кружки"""
 
-    strings = {"name": "MediafilesCircles"}
+    strings = {"name": "MediafilesCircles",
+               "channel": "Поддержи разработчика",
+               "welcome": (
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„MediafilesCircles“</b></i>"
+                   "\n\n🔗 <i>Модуль работает через канал https://t.me/MediafilesForModule</i>"
+                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+               }
 
+    async def on_dlmod(self, client, db):
+        await self.inline.bot.send_photo(
+            client._tg_id,
+            "https://envs.sh/7Jf.jpg",
+            caption=self.strings("welcome"),
+        )
+
+    async def client_ready(self) -> None:
+        logging.info("Модуль MediafilesCircles успешно загружен!")
+
+        await self.request_join(
+            "@SamsungMagicianModules",
+            self.strings['channel'],
+        )
+
+    
     async def дефcmd(self, message):
         """— Деф1"""
 
@@ -146,8 +169,6 @@ class MediafilesCircles(loader.Module):
             reply_to=reply.id if reply else None,
         )
         return
-
-
 
     async def недобавляйтеcmd(self, message):
         """— Недобавляйте меня"""
@@ -325,7 +346,7 @@ class MediafilesCircles(loader.Module):
         await message.delete()
         await message.client.send_file(
             message.to_id,
-            "https://t.me/MediafilesForModule/79",
+            "https://t.me/MediafilesForModule/102",
             voice_note=True,
             reply_to=reply.id if reply else None,
         )
@@ -383,3 +404,28 @@ class MediafilesCircles(loader.Module):
         )
         return
 
+    async def фанатcmd(self, message):
+        """— Фанаты заебали меня"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/100",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def гамарджобаcmd(self, message):
+        """— Что он вытворяет"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/101",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
