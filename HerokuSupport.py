@@ -46,7 +46,6 @@ class HerokuSupport(loader.Module):
                "channel": "Поддержи разработчика",
                "welcome": (
                    "🖐 <i>Приветствую, ты запустил установку модуля <b>„HerokuSupport“</b></i>"
-                   "\n\n🔗 <i>Модуль работает через канал https://t.me/MediafilesForModule</i>"
                    "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
