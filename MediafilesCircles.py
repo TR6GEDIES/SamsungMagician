@@ -30,7 +30,7 @@
 # Author: https://t.me/SamsungMagician
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 2)
+__version__ = (1, 0, 3)
 
 # meta developer: @SamsungMagician (idea by @mqone)
 
@@ -57,6 +57,7 @@ class MediafilesCircles(loader.Module):
             caption=self.strings("welcome"),
         )
 
+
     async def client_ready(self) -> None:
         logging.info("Модуль MediafilesCircles успешно загружен!")
 
@@ -65,7 +66,7 @@ class MediafilesCircles(loader.Module):
             self.strings['channel'],
         )
 
-    
+
     async def дефcmd(self, message):
         """— Деф1"""
 
@@ -169,6 +170,8 @@ class MediafilesCircles(loader.Module):
             reply_to=reply.id if reply else None,
         )
         return
+
+
 
     async def недобавляйтеcmd(self, message):
         """— Недобавляйте меня"""
@@ -425,6 +428,32 @@ class MediafilesCircles(loader.Module):
         await message.client.send_file(
             message.to_id,
             "https://t.me/MediafilesForModule/101",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def казимирcmd(self, message):
+        """— Пасасите дилду"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/104",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def казимир2cmd(self, message):
+        """— Идите нахуй"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/105",
             voice_note=True,
             reply_to=reply.id if reply else None,
         )
