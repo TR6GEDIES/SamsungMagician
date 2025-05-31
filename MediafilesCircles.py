@@ -50,7 +50,7 @@ class MediafilesCircles(loader.Module):
                    "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
-    async def on_dlmod(self, client, db):
+    async def on_dlmod(self, client):
         await self.inline.bot.send_photo(
             client._tg_id,
             "https://envs.sh/7Jf.jpg",
@@ -454,6 +454,123 @@ class MediafilesCircles(loader.Module):
         await message.client.send_file(
             message.to_id,
             "https://t.me/MediafilesForModule/105",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def разъеб1cmd(self, message):
+        """— Нет иди нахуй"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/107",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def разъеб2cmd(self, message):
+        """— Пизда динамикам"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/108",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def разъеб3cmd(self, message):
+        """— Сердешко"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/109",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def пиздаcmd(self, message):
+        """— Пизда"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/110",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def разъеб4cmd(self, message):
+        """— Первое правило подписчиков"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/111",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def разъеб5cmd(self, message):
+        """— Я бы хотел заказать"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/112",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def разъеб6cmd(self, message):
+        """— Профессии"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/113",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def антивирусcmd(self, message):
+        """— Хуйня антивирус"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/114",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def пиздюкcmd(self, message):
+        """— Расслабляется молодой человек"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/116",
             voice_note=True,
             reply_to=reply.id if reply else None,
         )
