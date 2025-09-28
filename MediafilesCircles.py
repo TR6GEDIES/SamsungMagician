@@ -575,3 +575,29 @@ class MediafilesCircles(loader.Module):
             reply_to=reply.id if reply else None,
         )
         return
+
+    async def легендаcmd(self, message):
+        """— Да нахер вообще это комментить"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/117",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def заходcmd(self, message):
+        """— Заходик в котакбаса"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/119",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
