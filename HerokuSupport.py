@@ -30,7 +30,7 @@
 # Author: https://t.me/SamsungMagician
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 2)
+__version__ = (1, 0, 3)
 
 # Name: HerokuSupport
 # meta developer: @SamsungMagician (idea by @hikka_dmod)
@@ -53,7 +53,7 @@ class HerokuSupport(loader.Module):
     async def on_dlmod(self, client, db):
         await self.inline.bot.send_photo(
             client._tg_id,
-            "https://envs.sh/7rk.jpg",
+            "https://pomf2.lain.la/f/ro1zbpz.jpg",
             caption=self.strings("welcome"),
         )
 
@@ -77,7 +77,7 @@ class HerokuSupport(loader.Module):
         await message.edit("🌘 <b>HerokuModules</b>")
         await sleep(.2)
         await message.edit("""
-<emoji document_id=5983093054842606366>💠</emoji> <b>Официальные каналы с модулями для хикки:</b>
+<emoji document_id=5983093054842606366>💠</emoji> <b>Официальные каналы с модулями:</b>
 
 <emoji document_id=5996651729725166075>🖤</emoji> <a href="https://t.me/hikarimods">Hikka ㉿ Modules</a> <a href="https://t.me/hikariatama">(Владелец)</a>
 <emoji document_id=5357138701442884456>💎</emoji> <a href="https://t.me/morisummermods">morisummer.mods</a> <a href="https://t.me/morisummer">(владелец)</a>
@@ -147,35 +147,6 @@ class HerokuSupport(loader.Module):
 
 <emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>
 """)
-    
-    @loader.command(alias="кактермукс")
-    async def howtermux(self, message):
-        """[кактермукс] - Показать инструкцию по установке Heroku на Termux"""
-        await message.edit("🌘")
-        await sleep(.2)
-        await message.edit("🌘 <b>Heroku</b>")
-        await sleep(.2)
-        await message.edit("🌘 <b>Heroku install</b>")
-        await sleep(.2)
-        await message.edit("🌘 <b>Heroku install Termux</b>")
-        await sleep(.2)
-        await message.edit("""
-<emoji document_id=5436113877181941026>❓</emoji> <b>Как установить Heroku на <em>Termux?</em></b>
-
-<emoji document_id=5348324054161967894>1️⃣</emoji> <b>Скачай <em>Termux</em> по <a href="https://f-droid.org/packages/com.termux">ссылке</a>. ⚠️ Версия из Play Market не подойдет!</b>
-
-<emoji document_id=5350559846632537457>2️⃣</emoji> <b>Скопируй в него команду:</b>
-
-<code>termux-wake-lock && export AIOHTTP_NO_EXTENSIONS=1 && pkg upgr -y && pkg install tur-repo && pkg update && pkg install python3.10 && pkg i wget ncurses-utils python3.10 -y && pkg update && pkg install openssl -y && pkg install git && clear && git clone https://github.com/coddrago/Heroku && cd Heroku && pip install -r requirements.txt && python3.10 -m hikka --no-web</code>
-
-<emoji document_id=5350719542106540014>3️⃣</emoji> <b>На все, что спрашивает скрипт отвечаем "y"</b>
-
-<emoji document_id=5350505304842846481>4️⃣</emoji> <b>Следуем инструкциям в скрипте.</b>
-
-<emoji document_id=5348566874433011485>5️⃣</emoji> <b>Где получить API_ID и API_HASH? 🎬 <a href="https://youtu.be/DcqDA249Lhg?t=24">Видео</a></b>
-
-<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>
-""" )
 
     @loader.command(alias="какюзерлэнд")
     async def howuserland(self, message):
