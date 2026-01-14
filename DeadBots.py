@@ -39,28 +39,32 @@ from .. import loader, utils
 from asyncio import sleep
 import logging
 
+logger = logging.getLogger(__name__)
 
 @loader.tds
 class DeadBots(loader.Module):
     """ᏮᴏᴄᴄᴛᴀϰϞᴇ ҕᴏᴛᴏʙ ʙ ʮᴀᴛᴇ"""
     strings = {'name': 'DeadBots',
-               "channel": "💫 Поддержи разработчика",
+               "channel": "Поддержи разработчика 💫",
                "welcome": (
                    "🖐 <i>Приветствую, ты запустил установку модуля <b>„DeadBots“</b></i>"
                    "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
 
-    async def on_dlmod(self, client):
+    async def on_dlmod(self):
         await self.inline.bot.send_photo(
-            client._tg_id,
+            self._client._self_id,
             "https://pomf2.lain.la/f/ranhb8yw.jpg",
             caption=self.strings("welcome"),
         )
 
 
-    async def client_ready(self) -> None:
-        logging.info("Модуль DeadBots успешно загружен!")
+    async def client_ready(self, client, db) -> None:
+        self.db = db
+        self.client = client
+
+        logger.info("Модуль DeadBots успешно загружен!")
 
         await self.request_join(
             "@SamsungMagicianModules",
