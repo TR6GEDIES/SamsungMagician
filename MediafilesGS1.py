@@ -35,13 +35,36 @@ __version__ = (1, 0, 2)
 # meta developer: @SamsungMagician (main developer @mqone)
 
 from .. import loader
+import logging
 import asyncio
 
 @loader.tds
 class MediafilesGS1(loader.Module):
     """Отправляет гс с канала https://t.me/MediafilesForModule"""
 
-    strings = {"name": "MediafilesGS1"}
+    strings = {"name": "MediafilesGS1",
+               "channel": "💫 Поддержи разработчика",
+               "welcome": (
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„MediafilesGS1“</b></i>"
+                   "\n\n🔗 <i>Модуль работает через канал https://t.me/MediafilesForModule</i>"
+                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+               }
+
+    async def on_dlmod(self, client):
+        await self.inline.bot.send_photo(
+            client._tg_id,
+            "https://pomf2.lain.la/f/f6dchfic.jpg",
+            caption=self.strings("welcome"),
+        )
+
+
+    async def client_ready(self) -> None:
+        logging.info("Модуль MediafilesGS1 успешно загружен!")
+
+        await self.request_join(
+            "@SamsungMagicianModules",
+            self.strings['channel'],
+        )
 
     # 1
     async def недоксcmd(self, message):
