@@ -35,13 +35,36 @@ __version__ = (1, 0, 2)
 # meta developer: @SamsungMagician (main developer @mqone)
 
 from .. import loader
+import logging
 import asyncio
 
 @loader.tds
 class MediafilesGS3(loader.Module):
     """Отправляет гс с канала https://t.me/MediafilesForModule"""
 
-    strings = {"name": "MediafilesGS3"}
+    strings = {"name": "MediafilesGS3",
+               "channel": "💫 Поддержи разработчика",
+               "welcome": (
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„MediafilesGS3“</b></i>"
+                   "\n\n🔗 <i>Модуль работает через канал https://t.me/MediafilesForModule</i>"
+                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+               }
+
+    async def on_dlmod(self, client):
+        await self.inline.bot.send_photo(
+            client._tg_id,
+            "https://pomf2.lain.la/f/v8cpyvbo.jpg",
+            caption=self.strings("welcome"),
+        )
+
+
+    async def client_ready(self) -> None:
+        logging.info("Модуль MediafilesGS3 успешно загружен!")
+
+        await self.request_join(
+            "@SamsungMagicianModules",
+            self.strings['channel'],
+        )
 
     # 1
     async def мазякаcmd(self, message):
@@ -276,6 +299,20 @@ class MediafilesGS3(loader.Module):
         await message.client.send_file(
             message.to_id,
             "https://t.me/MediafilesForModule/118",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    # 18
+    async def халяльcmd(self, message):
+        """— ХАЛЯЛЬ"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/122",
             voice_note=True,
             reply_to=reply.id if reply else None,
         )
