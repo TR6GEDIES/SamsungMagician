@@ -34,20 +34,23 @@ __version__ = (1, 0, 0)
 
 # meta developer: @SamsungMagician (main developer @none)
 
+import logging
 from .. import loader, utils
 from asyncio import sleep
-import logging
 import random
+
+logger = logging.getLogger(__name__)
 
 @loader.tds
 class FakeDoxing(loader.Module):
     """Форк на фейк докс модуль. Извиняйте, потерял изначального разработчика("""
 
     strings = {'name': 'FakeDoxing',
-               "channel": "💫 Поддержи разработчика",
+               "channel": "Поддержи разработчика 💫",
                "welcome": (
                    "🖐 <i>Приветствую, ты запустил установку модуля <b>„FakeDoxing“</b></i>"
-                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+                   "\n\n🤍 <i>Благодарю за установку</i>"
+                   "\n\n⚙️ <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
     async def on_dlmod(self, client):
@@ -58,8 +61,11 @@ class FakeDoxing(loader.Module):
         )
 
 
-    async def client_ready(self) -> None:
-        logging.info("Модуль FakeDoxing успешно загружен и готов к работе!")
+    async def client_ready(self, client, db) -> None:
+        self.db = db
+        self.client = client
+
+        logger.info("Модуль FakeDoxing успешно загружен и готов к работе!")
 
         await self.request_join(
             "@SamsungMagicianModules",
