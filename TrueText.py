@@ -61,7 +61,6 @@ class TrueText(loader.Module):
             caption=self.strings("welcome"),
         )
 
-
     async def client_ready(self, client, db) -> None:
         self.db = db
         self.client = client
