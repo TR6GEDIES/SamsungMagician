@@ -30,7 +30,7 @@
 # Author: https://t.me/SamsungMagician
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 3)
+__version__ = (1, 0, 4)
 
 # meta developer: @SamsungMagician (idea by @mqone)
 
@@ -43,7 +43,7 @@ class MediafilesCircles(loader.Module):
     """Отправляет кружки"""
 
     strings = {"name": "MediafilesCircles",
-               "channel": "Поддержи разработчика",
+               "channel": "💫 Поддержи разработчика",
                "welcome": (
                    "🖐 <i>Приветствую, ты запустил установку модуля <b>„MediafilesCircles“</b></i>"
                    "\n\n🔗 <i>Модуль работает через канал https://t.me/MediafilesForModule</i>"
@@ -53,7 +53,7 @@ class MediafilesCircles(loader.Module):
     async def on_dlmod(self, client):
         await self.inline.bot.send_photo(
             client._tg_id,
-            "https://envs.sh/7Jf.jpg",
+            "https://pomf2.lain.la/f/5ew1n33q.jpg",
             caption=self.strings("welcome"),
         )
 
@@ -597,6 +597,58 @@ class MediafilesCircles(loader.Module):
         await message.client.send_file(
             message.to_id,
             "https://t.me/MediafilesForModule/119",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def танецcmd(self, message):
+        """— Сегодня я покажу вам танец..."""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/121",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def трюкачcmd(self, message):
+        """— АХХАХАХАХХАХАХ"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/123",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def сисяндры2cmd(self, message):
+        """— Ну блять, ясен хуй что это"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/124",
+            voice_note=True,
+            reply_to=reply.id if reply else None,
+        )
+        return
+
+    async def джедайcmd(self, message):
+        """— Non comment"""
+
+        reply = await message.get_reply_message()
+        await message.delete()
+        await message.client.send_file(
+            message.to_id,
+            "https://t.me/MediafilesForModule/125",
             voice_note=True,
             reply_to=reply.id if reply else None,
         )
