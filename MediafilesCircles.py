@@ -34,9 +34,11 @@ __version__ = (1, 0, 4)
 
 # meta developer: @SamsungMagician (idea by @mqone)
 
-from .. import loader
+from .. import loader, utils
 import asyncio
 import logging
+
+logger = logging.getLogger(__name__)
 
 @loader.tds
 class MediafilesCircles(loader.Module):
@@ -50,16 +52,19 @@ class MediafilesCircles(loader.Module):
                    "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
-    async def on_dlmod(self, client):
+    async def on_dlmod(self):
         await self.inline.bot.send_photo(
-            client._tg_id,
+            self._client._self_id,
             "https://pomf2.lain.la/f/5ew1n33q.jpg",
             caption=self.strings("welcome"),
         )
 
 
-    async def client_ready(self) -> None:
-        logging.info("Модуль MediafilesCircles успешно загружен!")
+    async def client_ready(self, client, db) -> None:
+        self.db = db
+        self.client = client
+
+        logger.info("Модуль MediafilesCircles успешно загружен!")
 
         await self.request_join(
             "@SamsungMagicianModules",
@@ -653,3 +658,4 @@ class MediafilesCircles(loader.Module):
             reply_to=reply.id if reply else None,
         )
         return
+
