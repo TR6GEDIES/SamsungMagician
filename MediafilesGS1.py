@@ -30,7 +30,7 @@
 # Author: https://t.me/SamsungMagician
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 2)
+__version__ = (1, 0, 3)
 
 # meta developer: @SamsungMagician (main developer @mqone)
 
