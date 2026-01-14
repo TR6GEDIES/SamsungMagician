@@ -38,19 +38,23 @@ __version__ = (1, 0, 0)
 from telethon.tl.types import Message
 from .. import loader, utils
 import logging
+import asyncio
+import os
+
 
 @loader.tds
 class TrueText(loader.Module):
     """Возвращает исходный текст"""
 
     strings = {"name": "TrueText",
-               "channel": "💫 Поддержи разработчика",
+               "channel": "Поддержи разработчика 💫",
                "welcome": (
-                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„TrueText“</b></i>"
-                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>«TrueText»</b></i>"
+                   "\n\n🤍 <i>Благодарю за установку</i>"
+                   "\n\n⚙️ <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
-    async def on_dlmod(self, client):
+    async def on_dlmod(self, client, db):
         await self.inline.bot.send_photo(
             client._tg_id,
             "https://pomf2.lain.la/f/hnzw9o1.jpg",
@@ -58,8 +62,9 @@ class TrueText(loader.Module):
         )
 
 
-    async def client_ready(self) -> None:
-        logging.info("Модуль TrueText успешно загружен и готов к работе!")
+    async def client_ready(self, client, db) -> None:
+        self.db = db
+        self.client = client
 
         await self.request_join(
             "@SamsungMagicianModules",
@@ -68,4 +73,10 @@ class TrueText(loader.Module):
 
     async def tcmd(self, message: Message):
         """<text> - Text"""
-        await utils.answer(message, utils.get_args_raw(message))
+        args = utils.get_args_raw(message)
+        if not args:
+            await utils.answer(message, 'None')
+            return
+        else:
+            await utils.answer(message, args)
+            return
