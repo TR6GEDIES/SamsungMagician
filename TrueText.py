@@ -35,12 +35,12 @@ __version__ = (1, 0, 0)
 # meta developer: @SamsungMagician
 
 
+import logging
 from telethon.tl.types import Message
 from .. import loader, utils
-import logging
 import asyncio
-import os
 
+logger = logging.getLogger(__name__)
 
 @loader.tds
 class TrueText(loader.Module):
@@ -54,9 +54,9 @@ class TrueText(loader.Module):
                    "\n\n⚙️ <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
-    async def on_dlmod(self, client, db):
+    async def on_dlmod(self):
         await self.inline.bot.send_photo(
-            client._tg_id,
+            self._client._self_id,
             "https://pomf2.lain.la/f/hnzw9o1.jpg",
             caption=self.strings("welcome"),
         )
@@ -66,18 +66,19 @@ class TrueText(loader.Module):
         self.db = db
         self.client = client
 
-        logging.info("Модуль TrueText успешно загружен и готов к работе!")
+        logger.info("Модуль TrueText успешно загружен и готов к работе!")
 
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
         )
 
-    async def tcmd(self, message: Message):
+    @loader.command(alias="т")
+    async def t(self, message: Message):
         """<text> - Text"""
         args = utils.get_args_raw(message)
         if not args:
-            await utils.answer(message, 'None')
+            await message.delete()
             return
         else:
             await utils.answer(message, args)
