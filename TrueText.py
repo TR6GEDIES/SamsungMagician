@@ -66,6 +66,8 @@ class TrueText(loader.Module):
         self.db = db
         self.client = client
 
+        logging.info("Модуль TrueText успешно загружен и готов к работе!")
+
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
