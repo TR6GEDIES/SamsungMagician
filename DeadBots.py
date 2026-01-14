@@ -34,16 +34,39 @@ __version__ = (1, 0, 0)
 
 # meta developer: @SamsungMagician (idea by @Sheo_Mad)
 
-from telethon import events
-from telethon.tl.types import PeerChannel
-from asyncio import sleep
+
 from .. import loader, utils
+from asyncio import sleep
+import logging
+
 
 @loader.tds
 class DeadBots(loader.Module):
     """ᏮᴏᴄᴄᴛᴀϰϞᴇ ҕᴏᴛᴏʙ ʙ ʮᴀᴛᴇ"""
-    strings = {'name': 'DeadBots'}
-    
+    strings = {'name': 'DeadBots',
+               "channel": "💫 Поддержи разработчика",
+               "welcome": (
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„DeadBots“</b></i>"
+                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+               }
+
+
+    async def on_dlmod(self, client):
+        await self.inline.bot.send_photo(
+            client._tg_id,
+            "https://pomf2.lain.la/f/ranhb8yw.jpg",
+            caption=self.strings("welcome"),
+        )
+
+
+    async def client_ready(self) -> None:
+        logging.info("Модуль DeadBots успешно загружен!")
+
+        await self.request_join(
+            "@SamsungMagicianModules",
+            self.strings['channel'],
+        )
+
     @loader.command()
     async def боты(self, message):
         """[количество]"""
@@ -86,7 +109,7 @@ class DeadBots(loader.Module):
 
         if count <= 0:
             return await message.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϫᴏᴧҗϰᴏ ҕƅᴛ℩ ҕᴏᴧ℩ɯᴇ 0</b>')
-        if count > 5000000:
+        if count >= 5000:
             return await message.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϰᴇ ϫᴏᴧҗϰᴏ ᴨᴩᴇʙƅɯᴀᴛ℩ 5000 ᴄᴏᴏҕɰᴇϰϞӥ!</b>')
 
         for _ in range(count):
