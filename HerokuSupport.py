@@ -39,27 +39,32 @@ from .. import loader, utils
 from asyncio import sleep
 import logging
 
+logger = logging.getLogger(__name__)
+
 @loader.tds
 class HerokuSupport(loader.Module):
     """Заметки из саппорта хероку"""
     strings = {'name': 'HerokuSupport',
-               "channel": "Поддержи разработчика",
+               "channel": "Поддержи разработчика 💫",
                "welcome": (
                    "🖐 <i>Приветствую, ты запустил установку модуля <b>„HerokuSupport“</b></i>"
                    "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
 
-    async def on_dlmod(self, client, db):
+    async def on_dlmod(self):
         await self.inline.bot.send_photo(
-            client._tg_id,
+            self._client._self_id,
             "https://pomf2.lain.la/f/ro1zbpz.jpg",
             caption=self.strings("welcome"),
         )
 
 
-    async def client_ready(self) -> None:
-        logging.info("Модуль HerokuSupport успешно загружен!")
+    async def client_ready(self, client, db) -> None:
+        self.db = db
+        self.client = client
+        
+        logger.info("Модуль HerokuSupport успешно загружен!")
 
         await self.request_join(
             "@SamsungMagicianModules",
