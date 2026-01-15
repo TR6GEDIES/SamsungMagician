@@ -42,7 +42,7 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class MediafilesGS3(loader.Module):
-    """Отправляет гс с канала https://t.me/MediafilesForModule"""
+    """Отправляет гс со специального канала"""
 
     strings = {"name": "MediafilesGS3",
                "channel": "Поддержи разработчика 💫",
