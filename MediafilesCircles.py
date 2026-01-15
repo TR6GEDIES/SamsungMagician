@@ -42,7 +42,7 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class MediafilesCircles(loader.Module):
-    """Отправляет кружки"""
+    """Отправляет кружки со специального канала"""
 
     strings = {"name": "MediafilesCircles",
                "channel": "Поддержи разработчика 💫",
