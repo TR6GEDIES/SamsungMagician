@@ -47,8 +47,9 @@ class HerokuSupport(loader.Module):
     strings = {'name': 'HerokuSupport',
                "channel": "Поддержи разработчика 💫",
                "welcome": (
-                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„HerokuSupport“</b></i>"
-                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>«HerokuSupport»</b></i>"
+                   "\n\n🤍 <i>Благодарю за установку</i>"
+                   "\n\n⚙️ <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
 
@@ -63,7 +64,7 @@ class HerokuSupport(loader.Module):
     async def client_ready(self, client, db) -> None:
         self.db = db
         self.client = client
-        
+
         logger.info("Модуль HerokuSupport успешно загружен!")
 
         await self.request_join(
@@ -120,8 +121,7 @@ class HerokuSupport(loader.Module):
 <emoji document_id=5395716153530140157>😵</emoji> <a href="https://t.me/wmodules">Werpyock modules</a> (владелец) <i>[???]</i>
 <emoji document_id=5188212415010982800>🤩</emoji> <a href="https://t.me/AmekaMods">Ameka Mods | AmeMods</a> (владелец) <i>[???]</i>
 <emoji document_id=5215420315571605459>🤩</emoji> <a href="https://t.me/yg_modules">yg | modules</a> (владелец) <i>[???]</i>
-<emoji document_id=5226462234107987549>🤩</emoji> <a href="https://t.me/FModules">F:Modules</a> <a href="https://t.me/Fixyres">(владелец)</a>
-""")
+<emoji document_id=5226462234107987549>🤩</emoji> <a href="https://t.me/FModules">F:Modules</a> <a href="https://t.me/Fixyres">(владелец)</a>""")
 
     @loader.command(alias="почемубан")
     async def whyban(self, message):
@@ -150,8 +150,8 @@ class HerokuSupport(loader.Module):
 
 <emoji document_id=5274099962655816924>❗️</emoji> <em>Но даже выполняя все пункты выше вы все еще имеете вероятность бана аккаунта, если у вас есть возможность и деньги купите себе телеграм премиум, он помогает от большинства флудвейтов телеграма.</em>
 
-<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>
-""")
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>""")
+
 
     @loader.command(alias="какюзерлэнд")
     async def howuserland(self, message):
@@ -179,8 +179,8 @@ class HerokuSupport(loader.Module):
 
 <emoji document_id=5348566874433011485>5️⃣</emoji> <b>В конце установки появится <em>ссылка</em>, переходи по ней и <em>вводи данные</em> своего аккаунта для входа.</b>
 
-<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>
-""")
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>""")
+
 
     @loader.command(alias="каквсл")
     async def howwsl(self, message):
@@ -214,8 +214,61 @@ class HerokuSupport(loader.Module):
 
 <code>clear && git clone https://github.com/coddrago/Heroku && cd Heroku && pip install -r requirements.txt && python3 -m hikka</code>
 
-<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>
-""")
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>""")
+
+
+    @loader.command(alias="какхиккахост")
+    async def howhikkahost(self, message):
+        """[какхиккахост] - Показать инструкцию по установке Heroku на HikkaHost_bot"""
+        await message.edit("🌘")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku</b>")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku install</b>")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku install HikkaHost</b>")
+        await sleep(.2)
+        await message.edit("""
+<emoji document_id=5436113877181941026>❓</emoji> <b>Как установить Heroku на <em>HikkaHost?</em></b>
+
+<emoji document_id=5348324054161967894>1️⃣</emoji> <b>Перейдите на <em>@hikkahost_bot</em>.</b>
+
+<emoji document_id=5350559846632537457>2️⃣</emoji> <b>Выберите <em>«Установить»</em>.</b>
+
+<emoji document_id=5350719542106540014>3️⃣</emoji> <b>Выберите <em>«🪐 Heroku»</em>.</b>
+
+<emoji document_id=5350505304842846481>4️⃣</emoji> <b>И продолжайте установку.</b>
+
+<emoji document_id=5348566874433011485>5️⃣</emoji> <b>После этого вы получите ссылку, откройте ее и войдите в свой аккаунт.</b>
+
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>""")
+
+
+    @loader.command(alias="каклавхост")
+    async def howlavhost(self, message):
+        """[каклавхост] - Показать инструкцию по установке Heroku на LavHostBot"""
+        await message.edit("🌘")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku</b>")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku install</b>")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku install LavHost</b>")
+        await sleep(.2)
+        await message.edit("""
+<emoji document_id=5436113877181941026>❓</emoji> <b>Как установить Heroku на <em>LavHost?</em></b>
+
+<emoji document_id=5348324054161967894>1️⃣</emoji> <b>Перейдите на <em>@lavhostbot</em>.</b>
+
+<emoji document_id=5350559846632537457>2️⃣</emoji> <b>Введите команду /buy, выберите и оплатите счет.</b>
+
+<emoji document_id=5350719542106540014>3️⃣</emoji> <b>При необходимости отправьте квитанцию об оплате.</b>
+
+<emoji document_id=5350505304842846481>4️⃣</emoji> <b>После подтверждения оплаты введите /install и выберите Heroku.</b>
+
+<emoji document_id=5348566874433011485>5️⃣</emoji> <b>Следуйте инструкциям бота.</b>
+
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/heroku_talks">тык</a>""")
 
 
     @loader.command(alias="ффмпег")
@@ -246,5 +299,26 @@ class HerokuSupport(loader.Module):
 
 <emoji document_id=5350505304842846481>4️⃣</emoji> <b>И после прописываем</b> <code>.restart -f</code>
 
-<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/hikka_talks">тык</a>
-""")
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/hikka_talks">тык</a>""")
+
+
+    @loader.command(alias="решение")
+    async def solution(self, message):
+        """[решение] - Показать гайд по решению любых ошибок!"""
+        await message.edit("🌘")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku</b>")
+        await sleep(.2)
+        await message.edit("🌘 <b>Heroku guide</b>")
+        await sleep(.2)
+        await message.edit("""
+<emoji document_id=5370964879773539088>😯</emoji> <b> Лучший гайд по решению любых ошибок!</em></b>
+
+<tg-spoiler>http://www.translate.ru/
+https://translate.google.com/?hl=ru
+https://translate.yandex.ru/
+http://www.reverso.net/text_translation.aspx?lang=RU
+https://translator.microsoft.com/
+http://www.systranet.com/translate</tg-spoiler>
+
+<emoji document_id=5332533929020761310>✅</emoji> Взято из <a href="https://t.me/hikka_talks">тык</a>""")
