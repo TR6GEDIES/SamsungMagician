@@ -47,9 +47,9 @@ class MediafilesGS1(loader.Module):
     strings = {"name": "MediafilesGS1",
                "channel": "Поддержи разработчика 💫",
                "welcome": (
-                   "🖐 <i>Приветствую, ты запустил установку модуля <b>„MediafilesGS1“</b></i>"
-                   "\n\n🔗 <i>Модуль работает через канал https://t.me/MediafilesForModule</i>"
-                   "\n\n🩸 <i>Создан by <code>@SamsungMagician</code></i>"),
+                   "🖐 <i>Приветствую, ты запустил установку модуля <b>«MediafilesGS1»</b></i>"
+                   "\n\n🤍 <i>Благодарю за установку</i>"
+                   "\n\n⚙️ <i>Создан by <code>@SamsungMagician</code></i>"),
                }
 
     async def on_dlmod(self):
