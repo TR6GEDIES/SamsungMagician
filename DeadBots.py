@@ -76,33 +76,36 @@ class DeadBots(loader.Module):
     async def боты(self, message):
         """[количество]"""
 
-        response = await message.reply("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙ</b>")
-        
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ВᴏС</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОСᴛ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОᴄСᴛᴀϰ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏСᴄᴛᴀНϞᴇ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  Б</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОᴛ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОТᴏ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  БᴏТᴏВ</b>")
-        await sleep(.2)
-        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏᴛᴏʙ</b>")
+        is_owner = message.sender_id == self._client._self_id
+
+        if not is_owner:
+            await message.delete()
+            response = await message.reply("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙ</b>")
+        else:
+            response = message
+            await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙ</b>")
+
+        messages = [
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ВᴏС</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОСᴛ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОᴄСᴛᴀϰ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏСᴄᴛᴀНϞᴇ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  Б</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОᴛ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОТᴏ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  БᴏТᴏВ</b>",
+            "<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏᴛᴏʙ</b>"
+        ]
+
+        for msg in messages:
+            await sleep(.2)
+            await response.edit(msg)
+
         await sleep(1)
+
 
         args = utils.get_args_raw(message)
         if not args:
@@ -118,11 +121,13 @@ class DeadBots(loader.Module):
         if count >= 100:
             return await response.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϰᴇ ϫᴏᴧҗϰᴏ ᴨᴩᴇʮƅɯᴀᴛ℩ 100 ᴄᴏᴏҕɰᴇϰϞӥ!</b>')
 
-        for _ in range(count):
+
+        for i in range(count):
             try:
-                sent_message = await message.reply("<b>/start</b> ")
+                sent_message = await message.reply("<b>/start</b>")
                 await sent_message.delete()
 
             except Exception as e:
                 logger.error(f"Ошибка при отправке сообщения: {e}")
                 continue
+
