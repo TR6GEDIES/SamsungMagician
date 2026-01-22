@@ -30,7 +30,7 @@
 # Author: https://t.me/SamsungMagician
 # ---------------------------------------------------------------------------------
 
-__version__ = (1, 0, 0)
+__version__ = (1, 0, 1)
 
 # meta developer: @SamsungMagician (idea by @Sheo_Mad)
 
@@ -76,47 +76,53 @@ class DeadBots(loader.Module):
     async def боты(self, message):
         """[количество]"""
 
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙ</b>")
+        response = await message.reply("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙ</b>")
+        
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ВᴏС</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ВᴏС</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОСᴛ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОСᴛ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОᴄСᴛᴀϰ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙОᴄСᴛᴀϰ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏСᴄᴛᴀНϞᴇ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏСᴄᴛᴀНϞᴇ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  Б</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  Б</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОᴛ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОᴛ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОТᴏ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕОТᴏ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  БᴏТᴏВ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  БᴏТᴏВ</b>")
         await sleep(.2)
-        await message.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏᴛᴏʙ</b>")
+        await response.edit("<emoji document_id=5258093637450866522>🤖</emoji> <b>ʙᴏᴄᴄᴛᴀϰϞᴇ  ҕᴏᴛᴏʙ</b>")
         await sleep(1)
 
-        args = message.text.split(maxsplit=1)
-        if len(args) < 2:
-            return await message.reply('<b>ℨᴄᴨᴏᴧ℩ɜγӥᴛᴇ</b>: <code>.боты [количество]</code>')
+        args = utils.get_args_raw(message)
+        if not args:
+            return await response.edit('<b>ℨᴄᴨᴏᴧ℩ɜγӥᴛᴇ</b>: <code>.боты [количество]</code>')
 
         try:
-            count = int(args[1])
+            count = int(args)
         except ValueError:
-            return await message.edit('</b>ℨᴄᴨᴏᴧ℩ɜγӥᴛᴇ цᴇᴧᴏᴇ ʮϞᴄᴧᴏ</b>')
+            return await response.edit('</b>ℨᴄᴨᴏᴧ℩ɜγӥᴛᴇ цᴇᴧᴏᴇ ʮϞᴄᴧᴏ</b>')
 
         if count <= 0:
-            return await message.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϫᴏᴧҗϰᴏ ҕƅᴛ℩ ҕᴏᴧ℩ɯᴇ 0</b>')
-        if count >= 5000:
-            return await message.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϰᴇ ϫᴏᴧҗϰᴏ ᴨᴩᴇʙƅɯᴀᴛ℩ 5000 ᴄᴏᴏҕɰᴇϰϞӥ!</b>')
+            return await response.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϫᴏᴧҗϰᴏ ҕƅᴛ℩ ҕᴏᴧ℩ɯᴇ 0</b>')
+        if count >= 100:
+            return await response.edit('<b>ҊᴏᴧϞʮᴇᴄᴛʙᴏ ϰᴇ ϫᴏᴧҗϰᴏ ᴨᴩᴇʮƅɯᴀᴛ℩ 100 ᴄᴏᴏҕɰᴇϰϞӥ!</b>')
 
         for _ in range(count):
-            sent_message = await message.reply("<b>/start</b> ")
-            await sent_message.delete()
+            try:
+                sent_message = await message.reply("<b>/start</b> ")
+                await sent_message.delete()
+
+            except Exception as e:
+                logger.error(f"Ошибка при отправке сообщения: {e}")
+                continue
