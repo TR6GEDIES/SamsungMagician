@@ -239,8 +239,6 @@ class TagAllMod(loader.Module):
         self.db = db
         self.client = client
 
-        logger.info("Модуль TagAllMod успешно загружен и готов к работе!")
-
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
