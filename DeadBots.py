@@ -65,8 +65,6 @@ class DeadBots(loader.Module):
         self.db = db
         self.client = client
 
-        logger.info("Модуль DeadBots успешно загружен!")
-
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
