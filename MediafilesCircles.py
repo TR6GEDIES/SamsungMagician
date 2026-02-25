@@ -64,8 +64,6 @@ class MediafilesCircles(loader.Module):
         self.db = db
         self.client = client
 
-        logger.info("Модуль MediafilesCircles успешно загружен!")
-
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
