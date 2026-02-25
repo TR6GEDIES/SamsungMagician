@@ -65,8 +65,6 @@ class HerokuSupport(loader.Module):
         self.db = db
         self.client = client
 
-        logger.info("Модуль HerokuSupport успешно загружен!")
-
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
