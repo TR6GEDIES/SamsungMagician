@@ -64,8 +64,6 @@ class MediafilesGS2(loader.Module):
         self.db = db
         self.client = client
 
-        logger.info("Модуль MediafilesGS2 успешно загружен!")
-
         await self.request_join(
             "@SamsungMagicianModules",
             self.strings['channel'],
